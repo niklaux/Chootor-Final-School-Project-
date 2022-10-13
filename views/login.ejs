@@ -1,0 +1,58 @@
+<%- include("header") -%>
+
+<body class="login-body">
+  <h1>Chootor</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 form-signin">
+
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link my-tabs disabled" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-choose" aria-selected="false">Choose</a>
+            <a class="nav-item nav-link my-tabs active" id="nav-home-tab" data-toggle="tab" href="#nav-student" role="tab" aria-controls="nav-home" aria-selected="true">Student Account</a>
+            <a class="nav-item nav-link my-tabs" id="nav-profile-tab" data-toggle="tab" href="#nav-teacher" role="tab" aria-controls="nav-profile" aria-selected="false">Teacher Account</a>
+
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+          <div class="tab-pane fade show active" id="nav-student" role="tabpanel" aria-labelledby="nav-home-tab">
+            <!-- student form -->
+            <form class="item" action="/studentlogin" method="post">
+              <h1 class="h3 mb-3 font-weight-normal">Student Login</h1>
+
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" name="checkEmail" class="form-control" placeholder="Email address" required autofocus>
+
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" name="checkPassword" class="form-control" placeholder="Password" required>
+
+              <button type="submit" class="btn btn-lg btn-dark btn-block signin-button">Sign in</button>
+            </form>
+          </div>
+
+          <div class="tab-pane fade" id="nav-teacher" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <!-- teacher form -->
+            <form class="item" action="/teacherlogin" method="post">
+              <h1 class="h3 mb-3 font-weight-normal">Teacher Login</h1>
+
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" name="checkEmail" class="form-control" placeholder="Email address" required autofocus>
+
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" name="checkPassword" class="form-control" placeholder="Password" required>
+
+              <button type="submit" class="btn btn-lg btn-dark btn-block signin-button">Sign in</button>
+            </form>
+          </div>
+        </div>
+
+        <a href="/studentsignup"><button class="btn btn-lg btn-outline-dark btn-block signin-button" type="submit">Sign up as a Student</button></a>
+        <a href="/teachersignup"><button class="btn btn-lg btn-outline-dark btn-block signin-button" type="submit">Sign up as a Tutor</button></a>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include("footer") -%>

@@ -1,0 +1,69 @@
+<%- include("header") -%>
+
+<body>
+
+  <section id="homepage">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a href="/homepage" class="navbar-brand"><h1>Chootor</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/homepage">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </li>
+            <form action="/search" method="post" class="form-inline item">
+              <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </ul>
+        </div>
+      </nav>
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active my-tabs" data-toggle="tab" href="#nav-all-teachers" role="tab" aria-controls="nav-available-tutors-tab" aria-selected="true">Search Results</a>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-all-teachers" role="tabpanel" aria-labelledby="nav-available-tutors">
+          <!-- Search results -->
+          <% teacherCard.forEach(function(teacher){ %>
+          <div class="row">
+            <div class="card col-lg teachers">
+              <div class="card-body">
+                <h5 class="card-title"><%= teacher.firstName %> <%= teacher.lastName %></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subjects: <%= teacher.subjects%></h6>
+                <p class="card-text"><%= teacher.bio %></p>
+                <h6 class="card-subtitle mb-2 text-muted">Location: <%= teacher.city %>, <%= teacher.country %> </h6>
+                <a href="" class="card-link"><%= teacher.email %></a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </section>
+
+</body>
+
+
+<%- include("footer") -%>

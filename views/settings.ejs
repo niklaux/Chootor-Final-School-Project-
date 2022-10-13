@@ -1,0 +1,148 @@
+<%- include("header") -%>
+
+<body>
+  <div id="homepage" class="container-fluid">
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a href="/homepage" class="navbar-brand">
+        <h1>Chootor</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/homepage">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/settings">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+          <form action="/search" method="post" class="form-inline item">
+            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0 my-tabs" type="submit">Search</button>
+          </form>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- select menu -->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link my-tabs disabled" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-choose" aria-selected="false">Choose</a>
+        <a class="nav-item nav-link my-tabs active" id="nav-home-tab" data-toggle="tab" href="#nav-student-setting" role="tab" aria-controls="nav-home" aria-selected="true">For Student Accounts</a>
+        <a class="nav-item nav-link my-tabs" id="nav-profile-tab" data-toggle="tab" href="#nav-teacher-setting" role="tab" aria-controls="nav-profile" aria-selected="false">For Tutor Accounts</a>
+
+      </div>
+    </nav>
+
+    <div class="col-lg-8 form-signin">
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-student-setting" role="tabpanel" aria-labelledby="nav-home-tab">
+          <article class="card-body">
+
+            <!-- register form students -->
+
+            <form class="item" action="/studentupdate" method="post">
+              <label>For verification, enter your account details to make changes:</label>
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label>*Email: </label>
+                  <input type="email" class="form-control" name="email" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+
+                <div class="col form-group">
+                  <label>*Old Password:</label>
+                  <input type="password" class="form-control" name="oldPassword" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row end.// -->
+
+              <div class="form-group">
+                <label>*New Password:</label>
+                <input type="password" class="form-control" name="newPassword" required autocomplete="off">
+                <small class="form-text text-muted">Please write carefully your new password.</small>
+                <small class="form-text text-muted">If you're not changing it at this moment. PLEASE ENTER YOUR CURRENT PASSWORD.</small>
+              </div> <!-- form-group end.// -->
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block"> Confirm changes </button>
+              </div> <!-- form-group// -->
+
+            </form>
+          </article> <!-- card-body end .// -->
+        </div>
+
+        <div class="tab-pane fade" id="nav-teacher-setting" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <article class="card-body">
+
+            <!-- register form TEACHERS -->
+            <form class="item" action="/teacherupdate" method="post">
+              <label>For verification, enter your account details to make changes:</label>
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label>*Email:</label>
+                  <input type="email" class="form-control" name="email" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+
+                <div class="col form-group">
+                  <label>*Old Password:</label>
+                  <input type="password" class="form-control" name="oldPassword" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row end.// -->
+
+              <div class="form-group">
+                <label>*New Password:</label>
+                <input type="password" class="form-control" name="newPassword" required autocomplete="off">
+                <small class="form-text text-muted">Please enter your new password / </small>
+                <small class="form-text text-muted">If you're not changing it at this moment. PLEASE ENTER YOUR CURRENT PASSWORD.</small>
+              </div> <!-- form-group end.// -->
+
+              <div class="form-group">
+                <label>*Subject Specialties</label>
+                <input type="text" class="form-control" name="newSubjects" placeholder="i.e. Math, English, Science, C++, Web Development" required autocomplete="off">
+                <small class="form-text text-muted">Write the subjects you'll be teaching. Separate each subject by comma</small>
+              </div>
+
+              <div class="form-group">
+                <label>*Tell us about yourself</label>
+                <input type="text" class="form-control" name="newBio" placeholder="" required autocomplete="off">
+                <small class="form-text text-muted">You can write something funny, say your credentials, your rates, etc.</small>
+              </div>
+
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label>*City/Municipality</label>
+                  <input type="text" class="form-control" name="newCity" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+
+                <div class="col form-group">
+                  <label>*Country</label>
+                  <input type="text" class="form-control" name="newCountry" required autocomplete="off">
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row end.// -->
+
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block"> Confirm changes </button>
+              </div> <!-- form-group// -->
+
+            </form>
+
+          </article> <!-- card-body end .// -->
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+<%- include("footer") -%>
